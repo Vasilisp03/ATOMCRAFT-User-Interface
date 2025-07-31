@@ -1,0 +1,31 @@
+# AtomCraft Refactored - Requirements
+# Updated requirements for the refactored codebase
+
+# Core scientific computing
+numpy>=1.21.0
+scipy>=1.7.0
+matplotlib>=3.4.0
+
+# GUI framework
+tkinter-native  # Usually comes with Python
+
+# Database
+sqlite3-native  # Usually comes with Python
+
+# Network communication (built-in)
+socket-native  # Usually comes with Python
+
+# Threading and concurrency (built-in)
+threading-native  # Usually comes with Python
+
+# Development and debugging
+# pytest>=6.0.0  # Uncomment for testing
+# black>=21.0.0  # Uncomment for code formatting
+# flake8>=3.9.0  # Uncomment for linting
+
+# Optional: For enhanced logging
+# colorlog>=6.0.0  # Uncomment for colored console logs
+
+# Note: Many requirements are built-in Python modules
+# The refactored code minimizes external dependencies
+# while maintaining full functionality
