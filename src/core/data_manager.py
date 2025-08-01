@@ -76,14 +76,14 @@ class DataManager:
         except sqlite3.Error as e:
             raise DatabaseException(f"Failed to add command: {e}")
     
-    def get_command_history(self, limit: Optional[int] = None) -> List[Tuple[int, str, str]]:
+    def get_command_history(self, limit: Optional[int] = None) -> List[Tuple[int, str]]:
         """Retrieve command history from the database.
         
         Args:
             limit: Maximum number of commands to retrieve (optional)
             
         Returns:
-            List of tuples containing (id, command, timestamp)
+            List of tuples containing (id, command)
             
         Raises:
             DatabaseException: If the database operation fails
@@ -91,7 +91,7 @@ class DataManager:
         try:
             with self._db_lock:
                 with sqlite3.connect(self.db_path) as conn:
-                    query = "SELECT id, name, timestamp FROM names ORDER BY id"
+                    query = "SELECT id, name FROM names ORDER BY id"
                     if limit:
                         query += f" LIMIT {limit}"
                     

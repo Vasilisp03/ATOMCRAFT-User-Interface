@@ -215,7 +215,7 @@ class ControlPanel:
             self.history_listbox.delete(0, tk.END)
             
             # Add commands to listbox
-            for _, command, timestamp in history:
+            for _, command in history:
                 # Format display string
                 display_text = f"{command}"
                 if len(display_text) > 50:

@@ -83,8 +83,7 @@ class DatabaseConfig:
     NAMES_TABLE: str = """
         CREATE TABLE IF NOT EXISTS names (
             id INTEGER PRIMARY KEY,
-            name TEXT,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            name TEXT
         )
     """
 
