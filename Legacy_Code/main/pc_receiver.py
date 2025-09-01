@@ -39,6 +39,10 @@ HOST = '127.0.0.1'
 ROUTER_PORT5 = 1600
 HOST = '127.0.0.1'
 
+# Solenoid control address
+ROUTER_PORT_SOLENOID = 2390
+SOLENOID_HOST = '192.168.1.100'  # Replace with actual Arduino IP
+
 # Other constants
 DEFAULT_UPDATE_RATE = 100
 
@@ -48,6 +52,8 @@ temperature_data = [25] * 100
 tf_current_data_received = [10] * 100
 y_alpha = [0] * 100
 y_beta = [0] * 100
+solenoid_pressure_data = [0] * 100
+solenoid_status = "CLOSED"
 num_peripherals = 0
 running = 1
 global waiting_for_waveform
@@ -135,6 +141,73 @@ def send_waveform(command):
     c_sock.sendto(packet, send_address)
 
 # --------------------------------------------------------------------------------------------------------- #
+
+# Send solenoid control commands to Arduino
+#
+def send_solenoid_command(command):
+    try:
+        c_sock = socket(AF_INET, SOCK_DGRAM)
+        packet = command.encode()
+        send_address = (SOLENOID_HOST, ROUTER_PORT_SOLENOID)
+        c_sock.sendto(packet, send_address)
+        print(f"Sent solenoid command: {command}")
+        
+        # Wait for acknowledgment
+        c_sock.settimeout(2.0)
+        ack, addr = c_sock.recvfrom(1024)
+        print(f"Solenoid ACK: {ack.decode()}")
+        c_sock.close()
+        return True
+    except Exception as e:
+        print(f"Error sending solenoid command: {e}")
+        return False
+
+# --------------------------------------------------------------------------------------------------------- #
+
+# Receive pressure data from solenoid system
+#
+def receive_solenoid_pressure():
+    global solenoid_pressure_data
+    global solenoid_status
+    
+    s_sock = socket(AF_INET, SOCK_DGRAM)
+    address = (HOST, ROUTER_PORT_SOLENOID + 1)  # Use different port for receiving
+    s_sock.bind(address)
+    s_sock.settimeout(1)
+    print(f'Listening for solenoid data on port:{ROUTER_PORT_SOLENOID + 1}')
+    
+    while running != 0:
+        try:
+            msg, _ = s_sock.recvfrom(1024)
+            decoded_data = msg.decode().split(',')
+            
+            if len(decoded_data) >= 2:
+                pressure = float(decoded_data[0])
+                status = decoded_data[1]
+                
+                solenoid_pressure_data.append(pressure)
+                if len(solenoid_pressure_data) > 100:
+                    solenoid_pressure_data.pop(0)
+                    
+                solenoid_status = status
+                print(f"Solenoid Pressure: {pressure}, Status: {status}")
+                
+        except timeout:
+            continue
+        except Exception as e:
+            print(f"Error receiving solenoid data: {e}")
+
+# --------------------------------------------------------------------------------------------------------- #
+
+# Function to update solenoid pressure and status display
+def update_solenoid_display():
+    global solenoid_pressure_data, solenoid_status
+    if solenoid_pressure_data:
+        number_label3.config(text=f"{solenoid_pressure_data[-1]:.2f}")
+    else:
+        number_label3.config(text="0.00")
+    number_label4.config(text=solenoid_status)
+    app.after(1000, update_solenoid_display)
 
 # Clear empties out the database, removing all items from the listbox
 #
@@ -556,16 +629,16 @@ number_label2_title.place(relx=0.33, rely=0.70)
 number_label2 = tk.Label(app, text="0.00", font=("Verdana", 48), background='#060621')
 number_label2.place(relx=0.345, rely=0.75)
 
-number_label3_title = tk.Label(app, text="Measurement 3", font=("Verdana", 20), background='#060621', bd=2, relief="solid")
+number_label3_title = tk.Label(app, text="Solenoid Pressure", font=("Verdana", 20), background='#060621', bd=2, relief="solid")
 number_label3_title.place(relx=0.581, rely=0.70)
 
 number_label3 = tk.Label(app, text="0.00", font=("Verdana", 48), background='#060621')
 number_label3.place(relx=0.595, rely=0.75)
 
-number_label4_title = tk.Label(app, text="Measurement 4", font=("Verdana", 20), background='#060621', bd=2, relief="solid")
+number_label4_title = tk.Label(app, text="Solenoid Status", font=("Verdana", 20), background='#060621', bd=2, relief="solid")
 number_label4_title.place(relx=0.83, rely=0.70)
 
-number_label4 = tk.Label(app, text="0.00", font=("Verdana", 48), background='#060621')
+number_label4 = tk.Label(app, text="CLOSED", font=("Verdana", 36), background='#060621')
 number_label4.place(relx=0.845, rely=0.75)
 
 # --------------------------------------------------------------------------------------------------------- #
@@ -626,6 +699,12 @@ exit_button.place(relx=0.9, rely=0.025)
 def handle_pynq_commands():
     pass
 
+def handle_solenoid_commands():
+    add_to_db("Solenoid system ready - Commands:")
+    add_to_db("'solenoid open' - Open valve with preset time")
+    add_to_db("'solenoid time <ms>' - Set open duration")
+    add_to_db("'solenoid pressure' - Get pressure reading")
+
 # --------------------------------------------------------------------------------------------------------- #
 
 # List of commands that the user can input (This will be updated as more integrations are added)
@@ -635,13 +714,40 @@ commands = {
     "start control loop": prompt_for_waveform,
     "temperature test": handle_pynq_commands,
     "pressure test": handle_pynq_commands,
+    "solenoid test": handle_solenoid_commands,
+    "solenoid open": lambda: send_solenoid_command("o"),
+    "solenoid pressure": lambda: send_solenoid_command("pressure"),
 }
 
 def handle_command(command):
+    # Handle solenoid time setting commands
+    if command.startswith("solenoid time "):
+        try:
+            time_ms = command.split("solenoid time ")[1]
+            if send_solenoid_command(time_ms):
+                add_to_db(f"Solenoid time set to {time_ms}ms")
+            else:
+                add_to_db("Failed to set solenoid time")
+        except:
+            add_to_db("Invalid solenoid time format. Use: solenoid time <milliseconds>")
+        return
+    
+    # Handle other commands
     if command in commands:
         commands[command]()
+        add_to_db(f"Executed: {command}")
     else:
-        add_to_db("Invalid command")
+        add_to_db(f"Unknown command: {command}")
+        add_to_db("Available commands: clear, start control loop, temperature test, pressure test, solenoid test, solenoid open, solenoid time <ms>, solenoid pressure")
+# --------------------------------------------------------------------------------------------------------- #
+
+# Handle solenoid commands from GUI
+#
+def handle_solenoid_commands():
+    add_to_db("Solenoid system ready - Commands:")
+    add_to_db("'solenoid open' - Open valve with preset time")
+    add_to_db("'solenoid time <ms>' - Set open duration")
+    add_to_db("'solenoid pressure' - Get pressure reading")
 
 # --------------------------------------------------------------------------------------------------------- #
 
@@ -652,15 +758,17 @@ if __name__ == "__main__":
     tf_current_data_thread = threading.Thread(target = receive_from_pynq)
     temperature_data_thread = threading.Thread(target = receive_temp_from_pynq)
     pressure_data_thread = threading.Thread(target = receive_pressure)
-
+    solenoid_data_thread = threading.Thread(target = receive_solenoid_pressure)
 
     # start threads running
     tf_current_data_thread.start()
     temperature_data_thread.start()
     pressure_data_thread.start()
+    solenoid_data_thread.start()
+    
+    # Start solenoid display updates
+    app.after(1000, update_solenoid_display)
     
     # start app window
     app.mainloop()
 
-
-        

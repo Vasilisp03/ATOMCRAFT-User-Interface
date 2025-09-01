@@ -1,0 +1,139 @@
+2025-07-31 18:38:35,495 - atomcraft - INFO - AtomCraftPCController initializing...
+2025-07-31 18:38:35,498 - atomcraft - INFO - Database initialized successfully
+2025-07-31 18:38:35,498 - atomcraft - INFO - DataManager initialized with database: data/names.db
+2025-07-31 18:38:35,498 - atomcraft - INFO - SensorDataBuffer initialized with size: 100
+2025-07-31 18:38:35,498 - atomcraft - INFO - WaveformProcessor initialized
+2025-07-31 18:38:35,498 - atomcraft - INFO - NetworkClient initialized
+2025-07-31 18:38:35,498 - atomcraft - INFO - MainWindow initialized
+2025-07-31 18:38:35,498 - atomcraft - INFO - NetworkServer initialized
+2025-07-31 18:38:35,498 - atomcraft - INFO - System initialization completed successfully
+2025-07-31 18:38:35,498 - atomcraft - INFO - Starting network services...
+2025-07-31 18:38:35,498 - atomcraft - INFO - TF current receiver listening on port 1200
+2025-07-31 18:38:35,498 - atomcraft - INFO - Temperature receiver listening on port 1500
+2025-07-31 18:38:35,498 - atomcraft - INFO - Pressure receiver listening on port 1600
+2025-07-31 18:38:35,498 - atomcraft - INFO - NetworkServer started - all receivers active
+2025-07-31 18:38:35,498 - atomcraft - INFO - Solenoid receiver listening on port 2391
+2025-07-31 18:38:35,498 - atomcraft - INFO - Creating main window...
+2025-07-31 18:38:36,885 - atomcraft - INFO - ControlPanel initialized
+2025-07-31 18:38:36,886 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:38:36,966 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:38:36,995 - atomcraft - INFO - PlotManager initialized with multiple plots
+2025-07-31 18:38:36,996 - atomcraft - INFO - StatusPanel initialized
+2025-07-31 18:38:36,996 - atomcraft - INFO - GUI components initialized
+2025-07-31 18:38:37,016 - atomcraft - INFO - Main window created
+2025-07-31 18:38:37,016 - atomcraft - INFO - Starting GUI main loop...
+2025-07-31 18:38:37,016 - atomcraft - INFO - Starting GUI main loop
+2025-07-31 18:39:07,551 - atomcraft - INFO - Sent command: temperature test
+2025-07-31 18:40:11,552 - atomcraft - INFO - AtomCraftPCController initializing...
+2025-07-31 18:40:11,555 - atomcraft - INFO - Database initialized successfully
+2025-07-31 18:40:11,555 - atomcraft - INFO - DataManager initialized with database: data/names.db
+2025-07-31 18:40:11,555 - atomcraft - INFO - SensorDataBuffer initialized with size: 100
+2025-07-31 18:40:11,555 - atomcraft - INFO - WaveformProcessor initialized
+2025-07-31 18:40:11,555 - atomcraft - INFO - NetworkClient initialized
+2025-07-31 18:40:11,555 - atomcraft - INFO - MainWindow initialized
+2025-07-31 18:40:11,555 - atomcraft - INFO - NetworkServer initialized
+2025-07-31 18:40:11,555 - atomcraft - INFO - System initialization completed successfully
+2025-07-31 18:40:11,555 - atomcraft - INFO - Starting network services...
+2025-07-31 18:40:11,555 - atomcraft - INFO - TF current receiver listening on port 1200
+2025-07-31 18:40:11,555 - atomcraft - INFO - Temperature receiver listening on port 1500
+2025-07-31 18:40:11,555 - atomcraft - INFO - NetworkServer started - all receivers active
+2025-07-31 18:40:11,555 - atomcraft - INFO - Pressure receiver listening on port 1600
+2025-07-31 18:40:11,555 - atomcraft - INFO - Solenoid receiver listening on port 2391
+2025-07-31 18:40:11,555 - atomcraft - INFO - Creating main window...
+2025-07-31 18:40:11,930 - atomcraft - INFO - ControlPanel initialized
+2025-07-31 18:40:11,930 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:40:11,969 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:40:11,986 - atomcraft - INFO - PlotManager initialized with multiple plots
+2025-07-31 18:40:11,987 - atomcraft - INFO - StatusPanel initialized
+2025-07-31 18:40:11,987 - atomcraft - INFO - GUI components initialized
+2025-07-31 18:40:11,996 - atomcraft - INFO - Main window created
+2025-07-31 18:40:11,996 - atomcraft - INFO - Starting GUI main loop...
+2025-07-31 18:40:11,996 - atomcraft - INFO - Starting GUI main loop
+2025-07-31 18:40:38,553 - atomcraft - INFO - AtomCraftPCController initializing...
+2025-07-31 18:40:38,555 - atomcraft - INFO - Database initialized successfully
+2025-07-31 18:40:38,555 - atomcraft - INFO - DataManager initialized with database: data/names.db
+2025-07-31 18:40:38,555 - atomcraft - INFO - SensorDataBuffer initialized with size: 100
+2025-07-31 18:40:38,556 - atomcraft - INFO - WaveformProcessor initialized
+2025-07-31 18:40:38,556 - atomcraft - INFO - NetworkClient initialized
+2025-07-31 18:40:38,556 - atomcraft - INFO - MainWindow initialized
+2025-07-31 18:40:38,556 - atomcraft - INFO - NetworkServer initialized
+2025-07-31 18:40:38,556 - atomcraft - INFO - System initialization completed successfully
+2025-07-31 18:40:38,556 - atomcraft - INFO - Starting network services...
+2025-07-31 18:40:38,556 - atomcraft - INFO - TF current receiver listening on port 1200
+2025-07-31 18:40:38,556 - atomcraft - INFO - Temperature receiver listening on port 1500
+2025-07-31 18:40:38,556 - atomcraft - INFO - NetworkServer started - all receivers active
+2025-07-31 18:40:38,556 - atomcraft - INFO - Pressure receiver listening on port 1600
+2025-07-31 18:40:38,556 - atomcraft - INFO - Solenoid receiver listening on port 2391
+2025-07-31 18:40:38,556 - atomcraft - INFO - Creating main window...
+2025-07-31 18:40:38,841 - atomcraft - INFO - ControlPanel initialized
+2025-07-31 18:40:38,841 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:40:38,878 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:40:38,895 - atomcraft - INFO - PlotManager initialized with multiple plots
+2025-07-31 18:40:38,896 - atomcraft - INFO - StatusPanel initialized
+2025-07-31 18:40:38,896 - atomcraft - INFO - GUI components initialized
+2025-07-31 18:40:38,906 - atomcraft - INFO - Main window created
+2025-07-31 18:40:38,906 - atomcraft - INFO - Starting GUI main loop...
+2025-07-31 18:40:38,906 - atomcraft - INFO - Starting GUI main loop
+2025-07-31 18:40:53,452 - atomcraft - INFO - WaveformProcessor initialized
+2025-07-31 18:40:53,452 - atomcraft - INFO - AtomCraftPYNQClient initialized
+2025-07-31 18:40:53,452 - atomcraft - INFO - Starting PYNQ client...
+2025-07-31 18:40:53,452 - atomcraft - INFO - PYNQ client started - all services active
+2025-07-31 18:40:53,453 - atomcraft - INFO - Command receiver listening on port 1300
+2025-07-31 18:40:53,453 - atomcraft - INFO - Waveform receiver listening on port 1400
+2025-07-31 18:41:06,839 - atomcraft - INFO - Sent command: temperature test
+2025-07-31 18:41:06,839 - atomcraft - INFO - Received command: temperature test
+2025-07-31 18:41:06,840 - atomcraft - INFO - Starting temperature test - sending to ('127.0.0.1', 1500)
+2025-07-31 18:41:16,027 - atomcraft - INFO - Sent command: pressure test
+2025-07-31 18:41:16,028 - atomcraft - INFO - Received command: pressure test
+2025-07-31 18:41:16,028 - atomcraft - INFO - Starting pressure test - sending to ('127.0.0.1', 1600)
+2025-07-31 18:41:47,754 - atomcraft - INFO - Processed waveform command: 100 points generated
+2025-07-31 18:41:47,755 - atomcraft - INFO - Sent waveform data: 100 points
+2025-07-31 18:41:47,755 - atomcraft - INFO - Received waveform data: 83 points
+2025-07-31 18:41:47,755 - atomcraft - INFO - Starting TF current control
+2025-07-31 18:41:47,756 - atomcraft - INFO - Sending TF current data to ('127.0.0.1', 1200)
+2025-07-31 18:41:48,765 - atomcraft - INFO - Finished sending TF current data
+2025-07-31 18:41:53,055 - atomcraft - INFO - Received signal 2, shutting down...
+2025-07-31 18:41:53,243 - atomcraft - INFO - Temperature test stopped
+2025-07-31 18:41:53,346 - atomcraft - INFO - Pressure test stopped
+2025-07-31 18:41:53,762 - atomcraft - INFO - PYNQ client stopped
+2025-07-31 18:41:59,336 - atomcraft - INFO - Command history cleared
+2025-07-31 18:41:59,336 - atomcraft - INFO - Command history cleared from control panel
+2025-07-31 18:42:02,702 - atomcraft - INFO - Command history cleared
+2025-07-31 18:42:02,702 - atomcraft - INFO - Command history cleared from control panel
+2025-07-31 18:42:06,862 - atomcraft - INFO - NetworkServer stopped
+2025-07-31 18:42:06,863 - atomcraft - INFO - Application shutting down
+2025-07-31 18:42:06,885 - atomcraft - INFO - Application finished normally
+2025-07-31 18:42:06,885 - atomcraft - INFO - Shutting down application...
+2025-07-31 18:42:06,885 - atomcraft - INFO - Network server stopped
+2025-07-31 18:42:06,886 - atomcraft - INFO - Application shutdown completed
+2025-07-31 18:43:12,894 - atomcraft - INFO - AtomCraftPCController initializing...
+2025-07-31 18:43:12,896 - atomcraft - INFO - Database initialized successfully
+2025-07-31 18:43:12,896 - atomcraft - INFO - DataManager initialized with database: data/names.db
+2025-07-31 18:43:12,896 - atomcraft - INFO - SensorDataBuffer initialized with size: 100
+2025-07-31 18:43:12,896 - atomcraft - INFO - WaveformProcessor initialized
+2025-07-31 18:43:12,896 - atomcraft - INFO - NetworkClient initialized
+2025-07-31 18:43:12,896 - atomcraft - INFO - MainWindow initialized
+2025-07-31 18:43:12,896 - atomcraft - INFO - NetworkServer initialized
+2025-07-31 18:43:12,896 - atomcraft - INFO - System initialization completed successfully
+2025-07-31 18:43:12,896 - atomcraft - INFO - Starting network services...
+2025-07-31 18:43:12,897 - atomcraft - INFO - TF current receiver listening on port 1200
+2025-07-31 18:43:12,897 - atomcraft - INFO - Temperature receiver listening on port 1500
+2025-07-31 18:43:12,897 - atomcraft - INFO - NetworkServer started - all receivers active
+2025-07-31 18:43:12,897 - atomcraft - INFO - Pressure receiver listening on port 1600
+2025-07-31 18:43:12,897 - atomcraft - INFO - Solenoid receiver listening on port 2391
+2025-07-31 18:43:12,897 - atomcraft - INFO - Creating main window...
+2025-07-31 18:43:13,219 - atomcraft - INFO - ControlPanel initialized
+2025-07-31 18:43:13,219 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:43:13,257 - atomcraft - INFO - SignalFilter initialized
+2025-07-31 18:43:13,275 - atomcraft - INFO - PlotManager initialized with multiple plots
+2025-07-31 18:43:13,276 - atomcraft - INFO - StatusPanel initialized
+2025-07-31 18:43:13,276 - atomcraft - INFO - GUI components initialized
+2025-07-31 18:43:13,285 - atomcraft - INFO - Main window created
+2025-07-31 18:43:13,285 - atomcraft - INFO - Starting GUI main loop...
+2025-07-31 18:43:13,285 - atomcraft - INFO - Starting GUI main loop
+2025-07-31 18:43:24,920 - atomcraft - INFO - NetworkServer stopped
+2025-07-31 18:43:24,924 - atomcraft - INFO - Application shutting down
+2025-07-31 18:43:24,963 - atomcraft - INFO - Application finished normally
+2025-07-31 18:43:24,964 - atomcraft - INFO - Shutting down application...
+2025-07-31 18:43:24,964 - atomcraft - INFO - Network server stopped
+2025-07-31 18:43:24,964 - atomcraft - INFO - Application shutdown completed
