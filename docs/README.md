@@ -19,5 +19,8 @@ Since we are using python all dependencies can be installed using pip.
 ```console
 pip install -r requirements.txt
 ```
+# Starting software
+The main file to run when starting the software can be found from the root/src/gui/main_window.py
+
 
 Note: See Vasilis with any issues
